@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <title>Title</title>
+    <script type="text/javascript" src="http://content.gamebean.com/js/jquery/jquery.1.7.2.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+</head>
+<body ng-app="app" ng-controller="TestController as vm">
+
+<iframe ng-model="vm.result" ourpalm-iframe-editor width="500" height="400" style="border:1px solid grey;"></iframe>
+
+<div id="result">{{vm.result}}</div>
+
+<p>
+    <button ng-click="vm.getValue();">Get Value</button>
+    <button ng-click="vm.insertImage();">Insert Img</button>
+    <button ng-click="vm.insertHtml();">Insert HTML</button>
+</p>
+
+
+<script type="text/javascript">
+
+    angular.module('app', [])
+            .directive('ourpalmIframeEditor', function ($timeout) {
+                var iframe, idoc;
+
+                function initIframeEditor() {
+                    idoc.open();
+                    idoc.write('<html><body></body></html>');
+                    idoc.designMode = 'on';
+                    idoc.contentEditable = true;
+                    idoc.close();
+                }
+
+                function insertHtml(html) {
+                    //获取焦点
+                    iframe.focus();
+                    idoc.queryCommandSupported('InsertHTML') && idoc.execCommand('InsertHTML', false, html);
+                }
+
+                function insertImage(url) {
+                    //获取焦点
+                    iframe.focus();
+                    idoc.queryCommandSupported('InsertImage') && idoc.execCommand('InsertImage', false, url);
+                }
+
+                function updateNgModel(ngModelController) {
+                    //更新ngModel
+                    if (ngModelController) {
+                        $timeout(function () {
+                            ngModelController.$setViewValue(idoc.body.innerHTML);
+                        });
+                    }
+                }
+
+                return {
+                    restrict: 'A',
+                    scope: true,
+                    require: '?ngModel',
+                    link: function ($scope, $element, $attrs, ngModelController) {
+                        iframe = $element[0];
+                        idoc = $element[0].contentDocument;
+                        //初始化编辑器
+                        initIframeEditor();
+                        //监听插入HTML事件 并更新ngModel
+                        $scope.$on('ourpalm-iframe-editor:insertHtml', function (event, html) {
+                            insertHtml(html);
+                            updateNgModel(ngModelController);
+                        });
+                        //监听插入IMAGE事件 并更新ngModel
+                        $scope.$on('ourpalm-iframe-editor:insertImage', function (event, url) {
+                            insertImage(url);
+                            updateNgModel(ngModelController);
+                        });
+                        //获取值
+                        $scope.$on('ourpalm-iframe-editor:getValue', function (event, callback) {
+                            angular.isFunction(callback) && callback(idoc.body.innerHTML);
+                        });
+                        //监听键盘事件 更新ngModel
+                        angular.element(idoc).on('keydown', function () {
+                            updateNgModel(ngModelController);
+                        });
+                    }
+                }
+            })
+            .factory('iframeEditor', function ($rootScope) {
+                function iframeEditor() {
+                }
+
+                iframeEditor.insertHtml = function (html) {
+                    $rootScope.$broadcast('ourpalm-iframe-editor:insertHtml', html);
+                };
+                iframeEditor.insertImage = function (url) {
+                    $rootScope.$broadcast('ourpalm-iframe-editor:insertImage', url);
+                };
+                iframeEditor.getValue = function (callback) {
+                    $rootScope.$broadcast('ourpalm-iframe-editor:getValue', callback);
+                };
+
+                return iframeEditor;
+            })
+
+            .controller('TestController', function (iframeEditor) {
+                var vm = this;
+
+                vm.getValue = function () {
+                    iframeEditor.getValue(function (value) {
+                        console.info(value);
+                        vm.result = value;
+                    });
+                };
+
+                vm.insertHtml = function () {
+                    iframeEditor.insertHtml('<img src="http://twcdn.game-bean.com/original/CMSsave/url/1/241.png"/>');
+                };
+
+                vm.insertImage = function () {
+                    iframeEditor.insertImage('http://twcdn.game-bean.com/original/CMSsave/url/1/241.png');
+                };
+            })
+</script>
+
+
+</body>
+</html>

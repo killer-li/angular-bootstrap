@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <title>Title</title>
+    <script type="text/javascript" src="http://content.gamebean.com/js/jquery/jquery.1.7.2.js"></script>
+</head>
+<body>
+<iframe width="500" height="400" frameborder="0" name="testIframe"></iframe>
+<div id="result"></div>
+<p>
+    <button id="getValue">Get Value</button>
+    <button id="insertImg">Insert Img</button>
+    <button id="insertHtml">Insert HTML</button>
+</p>
+
+<script>
+    $(function () {
+        $('#getValue').click(function () {
+            var body = window.frames['testIframe'].document.body;
+            $('#result').html(body.innerHTML);
+            console.info(body.innerHTML);
+        });
+        $('#insertImg').click(function () {
+            var iframe = window.frames['testIframe'];
+            iframe.focus();
+            var doc = iframe.document;
+            url = 'http://twcdn.game-bean.com/original/CMSsave/url/1/241.png';
+            var result = doc.execCommand('InsertImage', false, url);
+            $('#result').html(result + '');
+        });
+        $('#insertHtml').click(function () {
+            var iframe = window.frames['testIframe'];
+            iframe.focus();
+            var doc = iframe.document;
+            if (doc.queryCommandSupported('insertHTML')) {
+                var html = '<img src="http://twcdn.game-bean.com/original/CMSsave/url/1/241.png"/>';
+                var result = doc.execCommand('insertHTML', false, html);
+                $('#result').html(result + '');
+            } else {
+                $('#result').html('不支持 insertHTML');
+            }
+        });
+    });
+</script>
+
+<script>
+    var win = window.frames['testIframe'];
+    var doc = win.document;
+    doc.open();
+    doc.write('<html><head><style>body{background-color:greenyellow}</style></head><body></body></html>');
+    doc.designMode = 'on';
+    doc.contentEditable = true;
+    doc.close();
+
+    var result = doc.queryCommandSupported('insertHTML');
+    $('#result').html(result + '');
+    console.info(result);
+</script>
+
+
+</body>
+</html>
