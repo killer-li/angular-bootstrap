@@ -1,0 +1,33 @@
+{
+  "name": "angular-uirouter",
+  "version": "1.0.0",
+  "description": "angular1.x uiroute",
+  "main": "index.js",
+  "scripts": {
+    "dev": "http-server -a 0.0.0.0 -p 8000 -c-1 ./src",
+    "start": "webpack-dev-server --watch --progress --colors --host 0.0.0.0 --port 8000 --inline --content-base src/",
+    "webpack": "webpack --profile --display-modules --colors"
+  },
+  "keywords": [
+    "angular1.x",
+    "uiroute",
+    "webpack"
+  ],
+  "author": "lsc",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-sanitize": "^1.5.8",
+    "angular-ui-router": "^0.3.1"
+  },
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.9.0",
+    "http-server": "^0.9.0",
+    "ng-annotate-webpack-plugin": "^0.1.3",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
