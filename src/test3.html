@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <title>Document</title>
+    <link rel="stylesheet" href="bower_components/angular-emoji/dist/emoji.min.css">
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-translate/angular-translate.js"></script>
+    <script type="text/javascript" src="bower_components/angular-emoji/dist/emoji.min.js"></script>
+    <script type="text/javascript" src="ourpalm-util/ourpalm-util-directive.js"></script>
+</head>
+<body ng-app="app" ng-controller="AppCtrl">
+<ul>
+    <li ng-repeat="message in messages" ourpalm-compile-html="message | emoji"></li>
+</ul>
+<script>
+    angular.module("app", ["emoji", 'ourpalm-util-directive']).controller("AppCtrl", function ($scope) {
+        $scope.messages = [
+            "Animals: :dog: :cat: :snake:",
+            "People: :smile: :confused: :angry:",
+            "Places: :house: :school: :hotel:"
+        ];
+    });
+</script>
+</body>
+</html>

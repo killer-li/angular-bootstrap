@@ -1,64 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-    <title>Title</title>
-    <script type="text/javascript" src="http://content.gamebean.com/js/jquery/jquery.1.7.2.js"></script>
+    <title>Document</title>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-translate/angular-translate.js"></script>
+    <script type="text/javascript" src="ourpalm-util/ourpalm-util-directive.js"></script>
+    <link rel="stylesheet" href="bower_components/angular-emoji/dist/emoji.min.css">
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .noselect {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .ourpalm-iframe-editor {
+            margin: 0px;
+            width: 100%;
+            height: 30%;
+            max-height: 300px;
+            border: 0px;
+            border-bottom: 1px solid #2b2b2b;
+        }
+
+        .ourpalm-emoji-panel {
+            width: 100%;
+            height: 30%;
+            max-height: 200px;
+            background-color: #E1E4E9;
+            overflow-y: auto;
+        }
+
+        .ourpalm-emoji {
+            display: inline-block;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .ourpalm-emoji:hover {
+            background-color: #45D1E6;
+        }
+    </style>
 </head>
 <body>
-<iframe width="500" height="400" frameborder="0" name="testIframe"></iframe>
-<div id="result"></div>
-<p>
-    <button id="getValue">Get Value</button>
-    <button id="insertImg">Insert Img</button>
-    <button id="insertHtml">Insert HTML</button>
-</p>
 
-<script>
-    $(function () {
-        $('#getValue').click(function () {
-            var body = window.frames['testIframe'].document.body;
-            $('#result').html(body.innerHTML);
-            console.info(body.innerHTML);
-        });
-        $('#insertImg').click(function () {
-            var iframe = window.frames['testIframe'];
-            iframe.focus();
-            var doc = iframe.document;
-            url = 'http://twcdn.game-bean.com/original/CMSsave/url/1/241.png';
-            var result = doc.execCommand('InsertImage', false, url);
-            $('#result').html(result + '');
-        });
-        $('#insertHtml').click(function () {
-            var iframe = window.frames['testIframe'];
-            iframe.focus();
-            var doc = iframe.document;
-            if (doc.queryCommandSupported('insertHTML')) {
-                var html = '<img src="http://twcdn.game-bean.com/original/CMSsave/url/1/241.png"/>';
-                var result = doc.execCommand('insertHTML', false, html);
-                $('#result').html(result + '');
-            } else {
-                $('#result').html('不支持 insertHTML');
-            }
-        });
-    });
+<!--<iframe ourpalm-iframe-editor class="ourpalm-iframe-editor"></iframe>-->
+<!--<div class="ourpalm-emoji-panel">-->
+<!--<ourpalm-emojis></ourpalm-emojis>-->
+<!--</div>-->
+
+<ourpalm-emojis-editor></ourpalm-emojis-editor>
+
+<script type="text/javascript">
+    angular.module('app', ['ourpalm-util-directive']);
 </script>
-
-<script>
-    var win = window.frames['testIframe'];
-    var doc = win.document;
-    doc.open();
-    doc.write('<html><head><style>body{background-color:greenyellow}</style></head><body></body></html>');
-    doc.designMode = 'on';
-    doc.contentEditable = true;
-    doc.close();
-
-    var result = doc.queryCommandSupported('insertHTML');
-    $('#result').html(result + '');
-    console.info(result);
-</script>
-
 
 </body>
 </html>
