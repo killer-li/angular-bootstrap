@@ -6,7 +6,8 @@ require('./ourpalm-util/ourpalm-util-http');
 
 require('./ourpalm-service/ourpalm-service');
 
-// require('./bower_components/angular-emoji/dist/emoji.min.css');
-// require('./bower_components/angular-emoji/dist/emoji.min');
-
 require('./ourpalm-app/ourpalm-app');
+
+require('./ourpalm-controller/InoicScrollController');
+
+angular.bootstrap(document, ['app']);

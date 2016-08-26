@@ -292,7 +292,7 @@
 
             function initIframeEditor() {
                 idoc.open();
-                idoc.write('<html><head><link rel="stylesheet" href="bower_components/angular-emoji/dist/emoji.min.css"><style>.noselect{-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}</style></head><body></body></html>');
+                idoc.write('<html><head><link rel="stylesheet" href="bower_components/angular-emoji/dist/emoji.min.css"><style>img[src=""]{opacity: 0;}</style></head><body></body></html>');
                 idoc.designMode = 'on';
                 idoc.contentEditable = true;
                 idoc.close();
@@ -391,7 +391,8 @@
                 controller: function ($rootScope, iframeEditor) {
                     console.info(iframeEditor);
                     $rootScope.$on('ourpalm-emoji:click', function (event, emoji) {
-                        iframeEditor.insertHtml('&nbsp;<i class="noselect emoji emoji_' + emoji + '">' + emoji + '</i>&nbsp;');
+                        iframeEditor.insertHtml('<img class="emoji emoji_' + emoji + '" src="" alt="' + emoji + '"/>');
+                        // iframeEditor.insertHtml('<i class="emoji emoji_' + emoji + '">' + emoji + '<i/>');
                     });
                 }
             }
