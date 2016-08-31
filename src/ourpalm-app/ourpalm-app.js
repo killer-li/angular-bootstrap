@@ -3,7 +3,6 @@
     angular.module('app',
         [
             'ui.router',
-            'ionic',
             'ourpalm-util-directive',
             'ourpalm-util-filter',
             'ourpalm-util-http',
@@ -20,53 +19,37 @@
             /* 设置超时 */
             $httpProvider.interceptors.push('timeoutHttpInterceptor');
 
-            $locationProvider.html5Mode(true);
-
-            $urlRouterProvider.otherwise('/state1');
+            $urlRouterProvider.otherwise('/admin/index');
 
             $stateProvider
-                .state('state1', {
-                    url: "/state1",
-                    template: `
-                            <h1>State 1</h1>
-                            <hr/>
-                            <a ui-sref="state1.list">Show List</a>
-                            <div ui-view></div>
-                        `
+                .state('admin', {
+                    abstract: true,
+                    url: '/admin',
+                    template: [
+                        '<div ui-view="top"></div>',
+                        '<div ui-view="left"></div>',
+                        '<div ui-view="main"></div>',
+                        '<div ui-view="right"></div>'
+                    ].join('')
                 })
-                .state('state1.list', {
-                    url: "/list",
-                    template: `
-                        <h1>State 2</h1>
-                        <hr/>
-                        <a ui-sref="state2.list">Show List</a>
-                        <div ui-view></div>
-                    `,
-                    controller: function ($scope) {
-                        $scope.items = ["A", "List", "Of", "Items"];
-                    }
-                })
-                .state('state2', {
-                    url: "/state2",
-                    template: `
-                        <h1>State 2</h1>
-                        <hr/>
-                        <a ui-sref="state2.list">Show List</a>
-                        <div ui-view></div>
-                    `
-                })
-                .state('state2.list', {
-                    url: "/list",
-                    template: `
-                        <h3>List of State 2 Things</h3>
-                        <ul>
-                          <li ng-repeat="thing in things">{{ thing }}</li>
-                        </ul>
-                    `,
-                    controller: function ($scope) {
-                        $scope.things = ["A", "Set", "Of", "Things"];
+                .state('admin.index', {
+                    url: "/index",
+                    views: {
+                        top: {
+                            templateUrl: './../ourpalm-view/top_menu.html'
+                        },
+                        left: {
+                            templateUrl: './../ourpalm-view/left_menu.html'
+                        },
+                        right: {
+                            templateUrl: './../ourpalm-view/right_menu.html'
+                        },
+                        main: {
+                            templateUrl: './../ourpalm-view/main.html'
+                        }
                     }
                 });
         });
 
+    angular.bootstrap(document, ['app']);
 })(angular);
