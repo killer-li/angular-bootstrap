@@ -1,0 +1,76 @@
+<!-- Start Page Header -->
+<div class="page-header">
+    <h1 class="title">帖子管理</h1>
+    <ol class="breadcrumb">
+        <li><a href="javascript:void(0);">内容管理</a></li>
+        <li class="active">帖子管理</li>
+    </ol>
+</div>
+<!-- End Page Header -->
+
+<!-- Start Panel -->
+<div class="col-md-12" ng-controller="TopicController as vm">
+    <div class="panel panel-default">
+        <div class="panel-title">
+            DAtaTables
+        </div>
+        <div class="panel-body table-responsive">
+
+            <table id="example0" class="table display">
+                <thead>
+                <tr>
+                    <th>帖子编号</th>
+                    <th>标题</th>
+                    <th>用户昵称</th>
+                    <th>发表时间</th>
+                    <th>回复数</th>
+                    <th>帖子地址</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+
+                <tfoot>
+                <tr>
+                    <th>帖子编号</th>
+                    <th>标题</th>
+                    <th>用户昵称</th>
+                    <th>发表时间</th>
+                    <th>回复数</th>
+                    <th>帖子地址</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                </tfoot>
+
+                <tbody>
+                <tr ng-repeat="t in vm.topic">
+                    <td>{{::t.number}}</td>
+                    <td>{{::t.title}}</td>
+                    <td>{{::t.nickName}}</td>
+                    <td>{{::t.postTime}}</td>
+                    <td>{{::t.replyCount}}</td>
+                    <td>{{::t.address}}</td>
+                    <td>{{::t.status}}</td>
+                    <td>
+                        <div aria-label="..." role="group" class="btn-group">
+                            <button class="btn btn-icon btn-sm btn-light" type="button"><i class="fa fa-hand-o-up"></i></button>
+                            <button class="btn btn-icon btn-sm btn-light" type="button"><i class="fa fa-arrows"></i></button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>
+<!-- End Panel -->
+
+
+<script>
+    $(document).ready(function () {
+        $('#example0').DataTable();
+    });
+</script>

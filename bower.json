@@ -29,7 +29,8 @@
     "angular-emojify": "^0.1.2",
     "jquery": "1.9.1",
     "angular-ui-grid": "^3.2.1",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "mockjs": "^1.0.0"
   },
   "devDependencies": {}
 }

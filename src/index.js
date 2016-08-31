@@ -11,6 +11,6 @@ require('./ourpalm-service/ourpalm-service');
 
 require('./ourpalm-app/ourpalm-app');
 
-require('./ourpalm-controller/InoicScrollController');
+require('./ourpalm-controller/ourpalm-controller');
 
 angular.bootstrap(document, ['app']);

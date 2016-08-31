@@ -35,7 +35,7 @@
 <!-- ================================================Data Tables================================================ -->
 <script type="text/javascript" src="lib_components/js/datatables/datatables.min.js"></script>
 
-<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
 <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script type="text/javascript" src="bower_components/angular-translate/angular-translate.min.js"></script>
 <script type="text/javascript" src="ourpalm-util/ourpalm-util-directive.js"></script>
@@ -43,7 +43,17 @@
 <script type="text/javascript" src="ourpalm-util/ourpalm-util-http.js"></script>
 <script type="text/javascript" src="ourpalm-service/ourpalm-service.js"></script>
 <script type="text/javascript" src="ourpalm-app/ourpalm-app.js"></script>
+<script type="text/javascript" src="ourpalm-controller/ourpalm-controller.js"></script>
 
 
+<!-- mock data -->
+<script type="text/javascript" src="bower_components/mockjs/dist/mock-min.js"></script>
+<script type="text/javascript" src="lib_components/mock/mock.angular.js"></script>
+<script type="text/javascript" src="lib_components/mock/mock-data.js"></script>
+
+<script type="text/javascript">
+    Mock.mockjax(window.angularAPP);
+    angular.bootstrap(document, ['app']);
+</script>
 </body>
 </html>

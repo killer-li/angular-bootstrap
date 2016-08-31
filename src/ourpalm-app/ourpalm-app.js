@@ -1,14 +1,17 @@
 (function (angular) {
 
-    angular.module('app',
+    var app = angular.module('app',
         [
             'ui.router',
             'ourpalm-util-directive',
             'ourpalm-util-filter',
             'ourpalm-util-http',
             'ourpalm-service'
-        ])
+        ]);
 
+    window.angularAPP = app; //export for mock test
+
+    app
         .constant('$ionicLoadingConfig', {
             template: 'Default Loading Template...'
         })
@@ -64,8 +67,14 @@
                         }
                     }
                 })
+                .state('admin.topic', {
+                    url: '/topic',
+                    views: {
+                        'content': {
+                            templateUrl: './../ourpalm-view/topic.html'
+                        }
+                    }
+                })
             ;
         });
-
-    angular.bootstrap(document, ['app']);
 })(angular);
