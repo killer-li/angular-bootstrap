@@ -26,7 +26,10 @@
     "angular-translate": "^2.11.1",
     "angular-sanitize": "^1.5.8",
     "angular-emoji": "angular-emoji-filter#^0.0.2",
-    "angular-emojify": "^0.1.2"
+    "angular-emojify": "^0.1.2",
+    "jquery": "1.9.1",
+    "angular-ui-grid": "^3.2.1",
+    "bootstrap": "^3.3.7"
   },
   "devDependencies": {}
 }

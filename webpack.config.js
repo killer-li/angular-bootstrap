@@ -8,8 +8,8 @@ module.exports = {
     },
     //入口文件输出配置
     output: {
-        path: 'src/',
-        filename: '[name].bundle.js'
+        path: 'src/target/',
+        filename: 'index.bundle.js'
     },
     module: {
         //加载器配置
@@ -28,7 +28,15 @@ module.exports = {
         }
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
+        new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: require('./src/target/jquery-manifest.json'),
+        }),
+        new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: require('./src/target/angular-manifest.json')
+        })
+        // new webpack.HotModuleReplacementPlugin(),
         /* 处理angular的依赖注入 */
         // new ngAnnotatePlugin({
         //     add: true

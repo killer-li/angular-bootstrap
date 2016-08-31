@@ -1,5 +1,8 @@
 require('./css/directive.css');
 
+require('./target/jquery.bundle');
+require('./target/angular.bundle');
+
 require('./ourpalm-util/ourpalm-util-directive');
 require('./ourpalm-util/ourpalm-util-filter');
 require('./ourpalm-util/ourpalm-util-http');

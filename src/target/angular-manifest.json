@@ -1,0 +1,9 @@
+{
+  "name": "angular_lib",
+  "content": {
+    "./node_modules/angular/index.js": 1,
+    "./node_modules/angular/angular.js": 2,
+    "./node_modules/angular-ui-router/release/angular-ui-router.js": 3,
+    "./node_modules/angular-translate/dist/angular-translate.js": 4
+  }
+}
