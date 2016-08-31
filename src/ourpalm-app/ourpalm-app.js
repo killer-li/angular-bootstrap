@@ -25,15 +25,6 @@
                 .state('admin', {
                     abstract: true,
                     url: '/admin',
-                    template: [
-                        '<div ui-view="top"></div>',
-                        '<div ui-view="left"></div>',
-                        '<div ui-view="main"></div>',
-                        '<div ui-view="right"></div>'
-                    ].join('')
-                })
-                .state('admin.index', {
-                    url: "/index",
                     views: {
                         top: {
                             templateUrl: './../ourpalm-view/top_menu.html'
@@ -48,7 +39,32 @@
                             templateUrl: './../ourpalm-view/main.html'
                         }
                     }
-                });
+                })
+                .state('admin.index', {
+                    url: '/index',
+                    views: {
+                        'content': {
+                            templateUrl: './../ourpalm-view/dashboard.html'
+                        }
+                    }
+                })
+                .state('admin.forum', {
+                    url: '/forum',
+                    views: {
+                        'content': {
+                            templateUrl: './../ourpalm-view/forum.html'
+                        }
+                    }
+                })
+                .state('admin.dashboard', {
+                    url: '/dashboard',
+                    views: {
+                        'content': {
+                            templateUrl: './../ourpalm-view/dashboard.html'
+                        }
+                    }
+                })
+            ;
         });
 
     angular.bootstrap(document, ['app']);

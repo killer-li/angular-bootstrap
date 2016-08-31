@@ -14,14 +14,6 @@ $(document).ready(function () {
     });
 });
 
-/* Top Stats Show Hide */
-$(document).ready(function () {
-    $(document).on('click', '#topstats', function () {
-        $(".topstats").slideToggle(100);
-    });
-});
-
-
 /* Sidepanel Show-Hide */
 $(document).ready(function () {
     $(document).on('click', '.sidepanel-open-button', function () {
