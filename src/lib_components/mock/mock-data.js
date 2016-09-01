@@ -1,5 +1,6 @@
 Mock
-    .mock('/mock/topic', {
+
+    .mock('/mock/topic', { //帖子管理
         'data|5-15': [{
             'number|+1': 10000,
             'title': '@ctitle(3, 5)',
@@ -8,6 +9,22 @@ Mock
             'replyCount|+1': 100,
             'address': '@url',
             'status|1': true
+        }]
+    })
+    .mock('/mock/hot', { //最热帖子
+        'data|3-10': [{
+            'title': '@ctitle(5, 7)',
+            'nickName': '@cname',
+            'postTime': '@datetime("yyyy-MM-dd HH:mm:ss")',
+            'replyCount|+1': 100
+        }]
+    })
+    .mock('/mock/recent', { //最新帖子
+        'data|3-10': [{
+            'title': '@ctitle(5, 7)',
+            'nickName': '@cname',
+            'postTime': '@datetime("yyyy-MM-dd HH:mm:ss")',
+            'replyCount|+1': 100
         }]
     })
 

@@ -397,4 +397,27 @@
                 }
             }
         })
+
+        /**
+         * 随进给元素添加一个class
+         * eg: <i class="fa" ourpalm-random-class="fa-folder-o,fa-file-archive-o,fa-file-pdf-o"></i>
+         */
+        .directive('ourpalmRandomClass', ['$timeout', '$parse', function ($timeout, $parse) {
+            function randomItem(arr) {
+                var index = Math.floor(Math.random() * arr.length);
+                return arr[index];
+            }
+
+            return {
+                restrict: 'A',
+                scope: true,
+                link: function (scope, elem, attrs) {
+                    if (angular.isArray(attrs.ourpalmRandomClass)) {
+                        elem.addClass(randomItem(attrs.ourpalmRandomClass));
+                    } else {
+                        elem.addClass(randomItem(attrs.ourpalmRandomClass.split(',')));
+                    }
+                }
+            }
+        }])
 })(angular);

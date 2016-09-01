@@ -1,166 +1,108 @@
-<!-- Start Files -->
-<div class="col-md-12 col-lg-12">
-    <div class="panel panel-widget" style="height:450px;">
-        <div class="panel-title">
-            最热帖子
-            <ul class="panel-tools">
-                <li><a class="icon"><i class="fa fa-refresh"></i></a></li>
-            </ul>
-        </div>
-        <div class="panel-body table-responsive">
+<div ng-controller="DashboardController as vm">
+    <!-- Start Files -->
+    <div class="col-md-12 col-lg-12">
+        <div class="panel panel-widget" style="height:450px;">
+            <div class="panel-title">
+                最热帖子
+                <ul class="panel-tools">
+                    <li><a class="icon" ng-click="vm.loadHotTopic();"><i class="fa fa-refresh"></i></a></li>
+                </ul>
+            </div>
+            <div class="panel-body table-responsive">
 
-            <table class="table table-dic table-hover">
-                <tbody>
-                <tr>
-                    <td><i class="fa fa-folder-o"></i>帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖</td>
-                    <td>发帖用户昵称</td>
-                    <td>27/2/2015 12:34 AM</td>
-                    <td><i class="fa fa-comment"></i>100</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-file-archive-o"></i>帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖</td>
-                    <td>发帖用户昵称</td>
-                    <td>27/2/2015 12:34 AM</td>
-                    <td><i class="fa fa-comment"></i>100</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-file-pdf-o"></i>帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖</td>
-                    <td>发帖用户昵称</td>
-                    <td>27/2/2015 12:34 AM</td>
-                    <td><i class="fa fa-comment"></i>100</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-file-archive-o"></i>帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖</td>
-                    <td>发帖用户昵称</td>
-                    <td>27/2/2015 12:34 AM</td>
-                    <td><i class="fa fa-comment"></i>100</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-folder-o"></i>帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖</td>
-                    <td>发帖用户昵称</td>
-                    <td>27/2/2015 12:34 AM</td>
-                    <td><i class="fa fa-comment"></i>100</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-file-pdf-o"></i>帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖</td>
-                    <td>发帖用户昵称</td>
-                    <td>27/2/2015 12:34 AM</td>
-                    <td><i class="fa fa-comment"></i>100</td>
-                </tr>
-                </tbody>
-            </table>
+                <table class="table table-dic table-hover">
+                    <tbody>
+                    <tr ng-repeat="t in vm.hotTopic">
+                        <td><i class="fa" ourpalm-random-class="fa-folder-o,fa-file-archive-o,fa-file-pdf-o"></i>{{t.title}}</td>
+                        <td>{{t.nickName}}</td>
+                        <td>{{t.postTime}}</td>
+                        <td><i class="fa fa-comment"></i>{{t.replyCount}}</td>
+                    </tr>
+                    </tbody>
+                </table>
 
+            </div>
         </div>
     </div>
-</div>
 
 
-<div class="col-md-12 col-lg-12">
-    <div class="panel panel-widget" style="height:450px;">
-        <div class="panel-title">
-            最新帖子
-            <ul class="panel-tools">
-                <li><a class="icon"><i class="fa fa-refresh"></i></a></li>
-            </ul>
-        </div>
-        <div class="panel-body table-responsive">
+    <div class="col-md-12 col-lg-12">
+        <div class="panel panel-widget" style="height:450px;">
+            <div class="panel-title">
+                最新帖子
+                <ul class="panel-tools">
+                    <li><a class="icon" ng-click="vm.loadRecentTopic();"><i class="fa fa-refresh"></i></a></li>
+                </ul>
+            </div>
+            <div class="panel-body table-responsive">
 
-            <table class="table table-dic table-hover">
-                <tbody>
-                <tr>
-                    <td><i class="fa fa-folder-o"></i>帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖</td>
-                    <td>发帖用户昵称</td>
-                    <td>27/2/2015 12:34 AM</td>
-                    <td><i class="fa fa-comment"></i>100</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-file-archive-o"></i>帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖</td>
-                    <td>发帖用户昵称</td>
-                    <td>27/2/2015 12:34 AM</td>
-                    <td><i class="fa fa-comment"></i>100</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-file-pdf-o"></i>帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖</td>
-                    <td>发帖用户昵称</td>
-                    <td>27/2/2015 12:34 AM</td>
-                    <td><i class="fa fa-comment"></i>100</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-file-archive-o"></i>帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖</td>
-                    <td>发帖用户昵称</td>
-                    <td>27/2/2015 12:34 AM</td>
-                    <td><i class="fa fa-comment"></i>100</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-folder-o"></i>帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖</td>
-                    <td>发帖用户昵称</td>
-                    <td>27/2/2015 12:34 AM</td>
-                    <td><i class="fa fa-comment"></i>100</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-file-pdf-o"></i>帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖子标题文字帖</td>
-                    <td>发帖用户昵称</td>
-                    <td>27/2/2015 12:34 AM</td>
-                    <td><i class="fa fa-comment"></i>100</td>
-                </tr>
-                </tbody>
-            </table>
+                <table class="table table-dic table-hover">
+                    <tbody>
+                    <tr ng-repeat="t in vm.recentTopic">
+                        <td><i class="fa" ourpalm-random-class="fa-folder-o,fa-file-archive-o,fa-file-pdf-o"></i>{{t.title}}</td>
+                        <td>{{t.nickName}}</td>
+                        <td>{{t.postTime}}</td>
+                        <td><i class="fa fa-comment"></i>{{t.replyCount}}</td>
+                    </tr>
+                    </tbody>
+                </table>
 
+            </div>
         </div>
     </div>
-</div>
 
 
-<div class="col-md-12 col-lg-12">
-    <div class="panel panel-widget" style="height:450px;">
-        <div class="panel-title">
-            社区统计
-            <ul class="panel-tools">
-                <li><a class="icon"><i class="fa fa-refresh"></i></a></li>
-            </ul>
-        </div>
-        <div class="panel-body table-responsive">
+    <div class="col-md-12 col-lg-12">
+        <div class="panel panel-widget" style="height:450px;">
+            <div class="panel-title">
+                社区统计
+                <ul class="panel-tools">
+                    <li><a class="icon"><i class="fa fa-refresh"></i></a></li>
+                </ul>
+            </div>
+            <div class="panel-body table-responsive">
 
-            <table class="table table-dic table-hover">
-                <tbody>
-                <tr>
-                    <td><i class="fa fa-folder-o"></i>Projects</td>
-                    <td>Folder</td>
-                    <td class="text-r">27/2/2015 12:34 AM</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-file-archive-o"></i>Backup</td>
-                    <td>Zip</td>
-                    <td class="text-r">27/2/2015 12:34 AM</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-file-code-o"></i>Kode Theme</td>
-                    <td>Html</td>
-                    <td class="text-r">27/2/2015 12:34 AM</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-file-pdf-o"></i>Documents</td>
-                    <td>Pdf</td>
-                    <td class="text-r">27/2/2015 12:34 AM</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-folder-o"></i>Themes</td>
-                    <td>Folder</td>
-                    <td class="text-r">27/2/2015 12:34 AM</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-folder-o"></i>Uploaded Files</td>
-                    <td>Folder</td>
-                    <td class="text-r">27/2/2015 12:34 AM</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-folder-o"></i>Personal Files</td>
-                    <td>Folder</td>
-                    <td class="text-r">27/2/2015 12:34 AM</td>
-                </tr>
-                </tbody>
-            </table>
+                <table class="table table-dic table-hover">
+                    <tbody>
+                    <tr>
+                        <td><i class="fa fa-folder-o"></i>Projects</td>
+                        <td>Folder</td>
+                        <td class="text-r">27/2/2015 12:34 AM</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-file-archive-o"></i>Backup</td>
+                        <td>Zip</td>
+                        <td class="text-r">27/2/2015 12:34 AM</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-file-code-o"></i>Kode Theme</td>
+                        <td>Html</td>
+                        <td class="text-r">27/2/2015 12:34 AM</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-file-pdf-o"></i>Documents</td>
+                        <td>Pdf</td>
+                        <td class="text-r">27/2/2015 12:34 AM</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-folder-o"></i>Themes</td>
+                        <td>Folder</td>
+                        <td class="text-r">27/2/2015 12:34 AM</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-folder-o"></i>Uploaded Files</td>
+                        <td>Folder</td>
+                        <td class="text-r">27/2/2015 12:34 AM</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-folder-o"></i>Personal Files</td>
+                        <td>Folder</td>
+                        <td class="text-r">27/2/2015 12:34 AM</td>
+                    </tr>
+                    </tbody>
+                </table>
 
+            </div>
         </div>
     </div>
 </div>
