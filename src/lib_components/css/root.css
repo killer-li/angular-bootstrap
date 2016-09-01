@@ -19,8 +19,6 @@ Main Css
 ================================================ */
 /* Bootstrap Main Css File (unedited) */
 @import url('bootstrap.css');
-/* Theme Style */
-@import url('style.css');
 /* Responsive Style */
 @import url('responsive.css');
 /* Shortcuts Css Codes */
@@ -55,4 +53,6 @@ Plugin Css
 /* Full Calendar */
 @import url('plugin/fullcalendar/fullcalendar.css');
 
+/* Theme Style */
+@import url('style.css');
 

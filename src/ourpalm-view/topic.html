@@ -12,8 +12,89 @@
 <div class="col-md-12" ng-controller="TopicController as vm">
     <div class="panel panel-default">
         <div class="panel-title">
-            DAtaTables
+
+            <div class="row">
+                <div class="col-md-11">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" placeholder="请输入标题">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" placeholder="请输入用户昵称">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control date-time-picker" placeholder="请选择发表时间">
+                        </div>
+                        <div class="col-md-2">
+                            <select class="selectpicker show-tick form-control">
+                                <option>商用</option>
+                                <option>暂停</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn btn-success" href="javascript:void(0);">搜索</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <button ng-click="vm.openSettingColumnModal();" class="btn btn-light btn-icon pull-right" type="button" uib-tooltip="自定义列表项" tooltip-placement="left-top"><i class="fa fa-gear"></i></button>
+                    <script type="text/ng-template" id="setting-column-tpl">
+                        <div class="modal-header">
+                            <h3 class="modal-title">自定义列表选项</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div class="checkbox checkbox-inline">
+                                <input type="checkbox" id="checkbox_01">
+                                <label for="checkbox_01">帖子编号</label>
+                            </div>
+                            <div class="checkbox checkbox-inline">
+                                <input type="checkbox" id="checkbox_02">
+                                <label for="checkbox_02">标题</label>
+                            </div>
+                            <div class="checkbox checkbox-inline">
+                                <input type="checkbox" id="checkbox_03">
+                                <label for="checkbox_03">用户昵称</label>
+                            </div>
+                            <div class="checkbox checkbox-inline">
+                                <input type="checkbox" id="checkbox_04">
+                                <label for="checkbox_04">发表时间</label>
+                            </div>
+                            <div class="checkbox checkbox-inline">
+                                <input type="checkbox" id="checkbox_05">
+                                <label for="checkbox_05">回复数</label>
+                            </div>
+                            <div class="checkbox checkbox-inline">
+                                <input type="checkbox" id="checkbox_06">
+                                <label for="checkbox_06">帖子地址</label>
+                            </div>
+                            <div class="checkbox checkbox-inline">
+                                <input type="checkbox" id="checkbox_07">
+                                <label for="checkbox_07">状态</label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" type="button">确定</button>
+                            <button class="btn btn-warning" type="button">取消</button>
+                        </div>
+                    </script>
+                </div>
+            </div>
         </div>
+
+        <!-- Date Range and Time Picker -->
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.date-time-picker').daterangepicker({
+                    singleDatePicker: true,
+                    timePicker: true,
+                    timePickerIncrement: 30,
+                    format: 'YYYY-MM-DD HH:mm:ss'
+                });
+
+                $('.selectpicker').selectpicker();
+            });
+        </script>
+
         <div class="panel-body table-responsive">
 
             <table id="example0" class="table display">
@@ -69,6 +150,8 @@
 
 <script>
     $(document).ready(function () {
-        $('#example0').DataTable();
+        $('#example0').DataTable({
+            dom: 'tip'
+        });
     });
 </script>

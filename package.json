@@ -4,7 +4,7 @@
   "description": "angular1.x uiroute",
   "main": "index.js",
   "scripts": {
-    "dev": "http-server -a 0.0.0.0 -p 8000 -c-1 ./src",
+    "dev": "http-server -a 0.0.0.0 -p 8001 -c-1 ./src",
     "start": "webpack-dev-server --watch --progress --colors --host 0.0.0.0 --port 8000 --inline --content-base src/",
     "webpack": "webpack --profile --display-modules --colors"
   },
