@@ -12,16 +12,16 @@ Mock
         }]
     })
     .mock('/mock/hot', { //最热帖子
-        'data|3-10': [{
-            'title': '@ctitle(5, 7)',
+        'data|5-7': [{
+            'title': '@ctitle(5, 15)',
             'nickName': '@cname',
             'postTime': '@datetime("yyyy-MM-dd HH:mm:ss")',
             'replyCount|+1': 100
         }]
     })
     .mock('/mock/recent', { //最新帖子
-        'data|3-10': [{
-            'title': '@ctitle(5, 7)',
+        'data|5-7': [{
+            'title': '@ctitle(5, 15)',
             'nickName': '@cname',
             'postTime': '@datetime("yyyy-MM-dd HH:mm:ss")',
             'replyCount|+1': 100

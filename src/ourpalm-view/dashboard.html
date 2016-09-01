@@ -13,10 +13,10 @@
                 <table class="table table-dic table-hover">
                     <tbody>
                     <tr ng-repeat="t in vm.hotTopic">
-                        <td><i class="fa" ourpalm-random-class="fa-folder-o,fa-file-archive-o,fa-file-pdf-o"></i>{{t.title}}</td>
-                        <td>{{t.nickName}}</td>
-                        <td>{{t.postTime}}</td>
-                        <td><i class="fa fa-comment"></i>{{t.replyCount}}</td>
+                        <td><i class="fa" ourpalm-random-class="fa-folder-o,fa-file-archive-o,fa-file-pdf-o"></i>{{::t.title}}</td>
+                        <td>{{::t.nickName}}</td>
+                        <td>{{::t.postTime}}</td>
+                        <td><i class="fa fa-comment"></i>{{::t.replyCount}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -39,10 +39,10 @@
                 <table class="table table-dic table-hover">
                     <tbody>
                     <tr ng-repeat="t in vm.recentTopic">
-                        <td><i class="fa" ourpalm-random-class="fa-folder-o,fa-file-archive-o,fa-file-pdf-o"></i>{{t.title}}</td>
-                        <td>{{t.nickName}}</td>
-                        <td>{{t.postTime}}</td>
-                        <td><i class="fa fa-comment"></i>{{t.replyCount}}</td>
+                        <td><i class="fa" ourpalm-random-class="fa-folder-o,fa-file-archive-o,fa-file-pdf-o"></i>{{::t.title}}</td>
+                        <td>{{::t.nickName}}</td>
+                        <td>{{::t.postTime}}</td>
+                        <td><i class="fa fa-comment"></i>{{::t.replyCount}}</td>
                     </tr>
                     </tbody>
                 </table>
