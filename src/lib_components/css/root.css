@@ -53,6 +53,9 @@ Plugin Css
 /* Full Calendar */
 @import url('plugin/fullcalendar/fullcalendar.css');
 
+@import url('../../bower_components/angular-ui-grid/ui-grid.min.css');
+@import url('../../lib_components/css/angular-ui-grid-rewrite.css');
+
 /* Theme Style */
 @import url('style.css');
 

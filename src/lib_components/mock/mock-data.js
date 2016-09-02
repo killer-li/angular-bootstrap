@@ -1,7 +1,7 @@
 Mock
 
     .mock('/mock/topic', { //帖子管理
-        'data|5-15': [{
+        'data|3-15': [{
             'number|+1': 10000,
             'title': '@ctitle(3, 5)',
             'nickName': '@cname',

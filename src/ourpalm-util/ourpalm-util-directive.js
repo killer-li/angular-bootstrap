@@ -255,32 +255,58 @@
             return {
                 restrict: 'EA',
                 scope: true,
-                template: function ($element, $attrs) {
-                    $element.css('display', 'none');
-                },
-                controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
-                    $scope.close = function () {
-                        $element.css('display', 'none');
-                        $rootScope.$emit('ourpalm-dialog-close');
-                    };
-                    $scope.confirm = function () {
-                        $element.css('display', 'none');
-                        $rootScope.$emit('ourpalm-dialog-confirm');
-                    };
-                    $scope.$on('ourpalm-dialog-open', function () {
-                        $element.css('display', 'block');
+                link: function (scope, ele, attrs) {
+                    ele.css('display', 'none');
+                    /* 监听service open服务 */
+                    scope.$on('ourpalm-dialog:open@' + attrs.ourpalmDialog, function () {
+                        ele.css('display', 'block');
                     });
-                }]
+                    /* 监听confirm指令事件 */
+                    scope.$on('ourpalm-dialog:confirm', function () {
+                        ele.css('display', 'none');
+                        /* 将confirm事件广播给service服务 */
+                        scope.$emit('ourpalm-dialog:confirm@' + attrs.ourpalmDialog);
+                    });
+                    /* 监听close指令事件 */
+                    scope.$on('ourpalm-dialog:close', function () {
+                        ele.css('display', 'none');
+                        /* 将close事件广播给service服务 */
+                        scope.$emit('ourpalm-dialog:close@' + attrs.ourpalmDialog);
+                    });
+                }
             }
         }])
+        .directive('ourpalmDialogConfirm', function () {
+            return {
+                restrict: 'EA',
+                scope: true,
+                link: function (scope, ele, attrs) {
+                    ele.on('click', function () {
+                        scope.$emit('ourpalm-dialog:confirm');
+                    });
+                }
+            }
+        })
+        .directive('ourpalmDialogClose', function () {
+            return {
+                restrict: 'EA',
+                scope: true,
+                link: function (scope, ele, attrs) {
+                    ele.on('click', function () {
+                        scope.$emit('ourpalm-dialog:close');
+                    });
+                }
+            }
+        })
         .factory('dialog', ['$rootScope', '$q', function ($rootScope, $q) {
-            return function () {
+            return function (templateId) {
                 var deferred = $q.defer();
-                $rootScope.$broadcast('ourpalm-dialog-open');
-                $rootScope.$on('ourpalm-dialog-confirm', function () {
+                templateId = templateId || '';
+                $rootScope.$broadcast('ourpalm-dialog:open@' + templateId);
+                $rootScope.$on('ourpalm-dialog:confirm@' + templateId, function () {
                     deferred.resolve();
                 });
-                $rootScope.$on('ourpalm-dialog-close', function () {
+                $rootScope.$on('ourpalm-dialog:close@' + templateId, function () {
                     deferred.reject();
                 });
                 return deferred.promise;

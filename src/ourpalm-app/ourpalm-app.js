@@ -3,8 +3,10 @@
     var app = angular.module('app',
         [
             'ui.router',
+            'ui.grid',
             'ui.bootstrap',
             'ourpalm-util-directive',
+            'ourpalm-bootstrap-directive',
             'ourpalm-util-filter',
             'ourpalm-util-http',
             'ourpalm-service'

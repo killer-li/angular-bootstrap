@@ -1,0 +1,31 @@
+.ui-grid {
+    border: none;
+    border-top: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.ui-grid-header {
+    border: none;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.ui-grid-top-panel {
+    background: none;
+}
+
+.ui-grid-header-cell {
+    color: #000000;
+    padding: 8px;
+}
+
+.ui-grid-row:nth-child(2n+1) .ui-grid-cell {
+    background-color: #F9F9F9;
+}
+
+.ui-grid-row:nth-child(2n) .ui-grid-cell {
+    background-color: whitesmoke;
+}
+
+.ui-grid-row:hover .ui-grid-cell{
+    background-color: #EAEAEA;
+}
