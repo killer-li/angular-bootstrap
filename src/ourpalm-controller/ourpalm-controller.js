@@ -9,27 +9,6 @@
         .controller('TopicController', function (Service, $uibModal, $scope, modal) {
             var vm = this;
 
-            $scope.topic = [
-                {
-                    "firstName": "Cox",
-                    "lastName": "Carney",
-                    "company": "Enormo",
-                    "employed": true
-                },
-                {
-                    "firstName": "Lorraine",
-                    "lastName": "Wise",
-                    "company": "Comveyer",
-                    "employed": false
-                },
-                {
-                    "firstName": "Nancy",
-                    "lastName": "Waters",
-                    "company": "Fuelton",
-                    "employed": false
-                }
-            ];
-
             Service.loadTopic().success(function (result) {
                 vm.topic = result.data;
             });
