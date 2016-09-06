@@ -5,6 +5,7 @@
             'ui.router',
             'ui.grid',
             'ui.bootstrap',
+            'datatables',
             'ourpalm-util-directive',
             'ourpalm-bootstrap-directive',
             'ourpalm-util-filter',
