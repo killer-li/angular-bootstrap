@@ -47,7 +47,9 @@
             return {
                 restrict: 'A',
                 link: function (scope, ele, attrs) {
-                    $(ele).selectpicker();
+                    var options = attrs.ourpalmSelectPicker || '{}';
+                    options = angular.fromJson(options);
+                    $(ele).selectpicker(options);
                 }
             }
         })
