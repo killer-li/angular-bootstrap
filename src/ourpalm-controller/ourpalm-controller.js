@@ -24,7 +24,7 @@
         /**
          * 帖子管理
          */
-        .controller('DashboardController', function (Service) {
+        .controller('DashboardController', function (Service, $timeout) {
             var vm = this;
 
             $timeout(function () {
