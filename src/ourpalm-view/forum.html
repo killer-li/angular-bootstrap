@@ -13,13 +13,13 @@
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-body table-responsive">
-                <table ng-table="vm.tableParams" class="table table-bordered table-striped table-hover" filter="true">
+                <table ng-table="vm.tableParams" class="table table-bordered table-striped table-hover">
                     <tr ng-repeat="row in $data">
                         <!--<td title="'Age'" filter="{age: 'number'}" sortable="'age'">{{row.age}}</td>-->
                         <td title="'任务ID'">{{row.id}}</td>
-                        <td title="'任务名称'">{{row.name}}</td>
+                        <td title="'任务名称'"><span ourpalm-compile-html="row.name | string_cut_tooltip:15:'...'"></span></td>
                         <td title="'是否开启'">{{row.state}}</td>
-                        <td title="'监听URL'">{{row.url}}</td>
+                        <td title="'监听URL'"><span ourpalm-compile-html="row.url | string_cut_tooltip:30:'...'"></span></td>
                         <td title="'请求方式'">{{row.requestType}}</td>
                         <td title="'响应类型'">{{row.responseType}}</td>
                         <td title="'告警次数限制'">{{row.alarmTimes}}</td>
