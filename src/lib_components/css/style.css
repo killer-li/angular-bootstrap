@@ -2841,7 +2841,8 @@ fieldset[disabled] .btn {
 .btn-light.active,
 .open > .dropdown-toggle.btn-default {
     box-shadow: none;
-    color: inherit;
+    color: #399bff;
+    background-color: #F9F9F9;
 }
 
 /* Button Success */
@@ -4830,6 +4831,10 @@ Widgets
 .table-dic .type {
     font-size: 11px;
     opacity: 0.7;
+}
+
+.ng-table-counts {
+    margin: 20px 0px;
 }
 
 /* model dialog */

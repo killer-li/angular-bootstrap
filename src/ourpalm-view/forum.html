@@ -13,8 +13,9 @@
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-body table-responsive">
-                <table ng-table="vm.tableParams" class="table table-condensed table-bordered table-striped" filter="true">
+                <table ng-table="vm.tableParams" class="table table-bordered table-striped table-hover" filter="true">
                     <tr ng-repeat="row in $data">
+                        <!--<td title="'Age'" filter="{age: 'number'}" sortable="'age'">{{row.age}}</td>-->
                         <td title="'任务ID'">{{row.id}}</td>
                         <td title="'任务名称'">{{row.name}}</td>
                         <td title="'是否开启'">{{row.state}}</td>
@@ -26,11 +27,11 @@
                         <td title="'轮训时间间隔'">{{row.rotationTime}}</td>
                         <td title="'超时时间'">{{row.timeout}}</td>
                         <td title="'启动延迟时间'">{{row.delayTime}}</td>
-                        <!--<td title="'Age'" filter="{age: 'number'}" sortable="'age'">{{row.age}}</td>-->
                     </tr>
                 </table>
             </div>
         </div>
     </div>
     <!-- End Panel -->
+
 </div>

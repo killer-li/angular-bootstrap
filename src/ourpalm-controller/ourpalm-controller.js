@@ -52,7 +52,7 @@
             vm.tableParams = new NgTableParams({}, {
                 getData: function ($defer, params) {
                     // console.info(params.orderBy());
-                    $Http.post('http://localhost/monitor/task/pageURLTask/2', {
+                    $Http.post('http://192.168.75.107/monitor/task/pageURLTask/2', {
                         page: params.page(),
                         rows: params.count()
                     }, {
