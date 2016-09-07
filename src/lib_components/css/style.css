@@ -4841,3 +4841,8 @@ Widgets
 .modal-content {
     border-radius: 0px;
 }
+
+input[type="checkbox"], input[type="radio"] {
+    height: 12px;
+    margin: 2px 5px;
+}
