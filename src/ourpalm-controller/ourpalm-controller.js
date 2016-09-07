@@ -44,6 +44,25 @@
                     vm.hotTopic = result.data;
                 });
             };
-        });
+        })
+
+        .controller('ExampleCtrl', function (NgTableParams, $Http) {
+            var vm = this;
+
+            vm.tableParams = new NgTableParams({}, {
+                getData: function ($defer, params) {
+                    // console.info(params.orderBy());
+                    $Http.post('http://localhost/monitor/task/pageURLTask/2', {
+                        page: params.page(),
+                        rows: params.count()
+                    }, {
+                        cache: true
+                    }).success(function (result) {
+                        params.total(result.total);
+                        $defer.resolve(result.rows);
+                    });
+                }
+            });
+        })
 
 })(angular);

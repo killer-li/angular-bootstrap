@@ -1,10 +1,45 @@
 (function (window, angular) {
 
-    angular.module('ourpalm-util-http', ['ourpalm-util-directive'])
-    /**
-     * 在 HttpModule 模块上添加 拦截器 用来给http请求 增加 mask loading
-     * 通过 angular 指令 实现
-     */
+    angular
+        .module('ourpalm-util-http', ['ourpalm-util-directive'])
+
+        /**
+         * 扩展$http
+         */
+        .service('$Http', function ($http) {
+            function get(url, formData, config) {
+                var conf = {}, param = {};
+                angular.extend(conf, config);
+                angular.extend(param, formData);
+                return $http.get(url + '?' + $.param(param), conf);
+            }
+
+            function post(url, formData, config) {
+                var conf = {}, param = {};
+                angular.extend(conf, config);
+                angular.extend(param, formData);
+                return $http.post(url, $.param(param), conf);
+            }
+
+            function jsonp(url, formData, config) {
+                var conf = {}, param = {callback: 'JSON_CALLBACK'};
+                angular.extend(conf, config);
+                angular.extend(param, formData);
+                return $http.jsonp(url + '?' + $.param(param), conf);
+            }
+
+            return {
+                get: get,
+                post: post,
+                jsonp: jsonp
+            }
+        })
+
+
+        /**
+         * 在 HttpModule 模块上添加 拦截器 用来给http请求 增加 mask loading
+         * 通过 angular 指令 实现
+         */
         .factory('ajaxLoadingInterceptor', ["$q", "$rootScope", 'loading', function ($q, $rootScope, loading) {
             return {
                 request: function (config) {

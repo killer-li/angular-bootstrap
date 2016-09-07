@@ -28,7 +28,12 @@ Mock
         }]
     })
 
-    .mock('http://mockjs.test.data/sdkv2/httpheader', {
-        'key1': 'key1',
-        'key2': 'key2'
+    .mock('/mock/forum', {
+        'count': 23,
+        "data|10": [
+            {
+                'name': "@cname",
+                'age|+1': 25
+            }
+        ]
     })
