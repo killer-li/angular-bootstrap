@@ -1,7 +1,8 @@
 Mock
 
     .mock('/mock/topic', { //帖子管理
-        'data|15-35': [{
+        'total': 30,
+        'data|10': [{
             'number|+1': 10000,
             'title': '@ctitle(3, 5)',
             'nickName': '@cname',
@@ -28,7 +29,12 @@ Mock
         }]
     })
 
-    .mock('http://mockjs.test.data/sdkv2/httpheader', {
-        'key1': 'key1',
-        'key2': 'key2'
+    .mock('/mock/forum', {
+        'count': 23,
+        "data|10": [
+            {
+                'name': "@cname",
+                'age|+1': 25
+            }
+        ]
     })

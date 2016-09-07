@@ -153,6 +153,27 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
 
+/*
+ *  DropMenu点击item不关闭
+ *  <div class="dropdown pull-right">
+ *      <button class="btn btn-light" type="button" data-toggle="dropdown">
+ *          <i class="fa fa-gear"></i>
+ *          <span class="caret"></span>
+ *      </button>
+ *      <ul class="dropdown-menu" role="menu">
+ *          <li role="presentation" data-stopPropagation="true" ng-repeat="col in vm.cols">
+ *              <a href="javascript:void(0);"><label><input type="checkbox" ng-model-options="{ getterSetter: true }" ng-model="col.show"/>{{col.title()}}</label></a>
+ *          </li>
+ *      </ul>
+ *  </div>
+ *
+ **/
+$(function () {
+    $(document).on('click', '[data-stopPropagation]', function (e) {
+        e.stopPropagation();
+    })
+});
+
 /* Popover */
 $(function () {
     $('[data-toggle="popover"]').popover()
