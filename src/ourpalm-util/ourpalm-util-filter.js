@@ -35,4 +35,17 @@
             }
         })
 
+        /**
+         * 字符串长度截取 ，字符串过长的时候转为tooltip
+         */
+        .filter('string_cut_tooltip', function () {
+            return function (val, limit, postfix) {
+                if (!!val && val.length > limit) {
+                    var text = val.substr(0, limit) + postfix;
+                    return ['<span uib-tooltip="', val, '" uib-popover="', val, '" popover-placement="bottom">', text, '</span>'].join('');
+                }
+                return ['<span uib-tooltip="', val, '" uib-popover="', val, '" popover-placement="bottom">', val, '</span>'].join('');
+            }
+        })
+
 })(angular);

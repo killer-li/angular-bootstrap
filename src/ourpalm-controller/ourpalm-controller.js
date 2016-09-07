@@ -6,14 +6,8 @@
         /**
          * 最热帖子 最新帖子
          */
-        .controller('TopicController', function (Service, NgTableParams, $scope, modal, $q) {
+        .controller('TopicController', function (Service, NgTableParams, $q) {
             var vm = this;
-
-            // vm.cols = [
-            //     {field: "number", title: "帖子编号", show: false},
-            //     {field: "title", title: "标题", show: true},
-            //     {field: "nickName", title: "用户昵称", show: true}
-            // ];
 
             vm.tableParams = new NgTableParams({}, {
                 getData: function (params) {
@@ -25,20 +19,12 @@
                     return deferred.promise;
                 }
             });
-
-            vm.openSettingColumnModal = function () {
-                modal().then(function () {
-                    console.info('confirm');
-                }, function () {
-                    console.info('close');
-                })
-            };
         })
 
         /**
          * 帖子管理
          */
-        .controller('DashboardController', function (Service, $q) {
+        .controller('DashboardController', function (Service) {
             var vm = this;
 
             $timeout(function () {
@@ -59,7 +45,7 @@
             };
         })
 
-        .controller('ExampleCtrl', function (NgTableParams, $Http) {
+        .controller('ExampleCtrl', function (NgTableParams, $Http, $q) {
             var vm = this;
 
             vm.tableParams = new NgTableParams({}, {
