@@ -6,41 +6,19 @@
         /**
          * 最热帖子 最新帖子
          */
-        .controller('TopicController', function (Service, $uibModal, $scope, modal) {
+        .controller('TopicController', function (Service, NgTableParams, $q) {
             var vm = this;
 
-            $scope.topic = [
-                {
-                    "firstName": "Cox",
-                    "lastName": "Carney",
-                    "company": "Enormo",
-                    "employed": true
-                },
-                {
-                    "firstName": "Lorraine",
-                    "lastName": "Wise",
-                    "company": "Comveyer",
-                    "employed": false
-                },
-                {
-                    "firstName": "Nancy",
-                    "lastName": "Waters",
-                    "company": "Fuelton",
-                    "employed": false
+            vm.tableParams = new NgTableParams({}, {
+                getData: function (params) {
+                    var deferred = $q.defer();
+                    Service.loadTopic().success(function (result) {
+                        params.total(result.total);
+                        deferred.resolve(result.data);
+                    });
+                    return deferred.promise;
                 }
-            ];
-
-            Service.loadTopic().success(function (result) {
-                vm.topic = result.data;
             });
-
-            vm.openSettingColumnModal = function () {
-                modal().then(function () {
-                    console.info('confirm');
-                }, function () {
-                    console.info('close');
-                })
-            };
         })
 
         /**
@@ -65,6 +43,27 @@
                     vm.hotTopic = result.data;
                 });
             };
-        });
+        })
+
+        .controller('ForumController', function (NgTableParams, $Http, $q) {
+            var vm = this;
+
+            vm.tableParams = new NgTableParams({}, {
+                getData: function (params) {
+                    var deferred = $q.defer();
+                    // console.info(params.orderBy());
+                    $Http.post('/mock/forum', {
+                        page: params.page(),
+                        rows: params.count()
+                    }, {
+                        cache: true
+                    }).success(function (result) {
+                        params.total(result.total);
+                        deferred.resolve(result.data);
+                    });
+                    return deferred.promise;
+                }
+            });
+        })
 
 })(angular);

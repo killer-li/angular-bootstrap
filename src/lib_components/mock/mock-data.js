@@ -1,7 +1,8 @@
 Mock
 
     .mock('/mock/topic', { //帖子管理
-        'data|3-15': [{
+        'total': 30,
+        'data|10': [{
             'number|+1': 10000,
             'title': '@ctitle(3, 5)',
             'nickName': '@cname',
@@ -28,7 +29,25 @@ Mock
         }]
     })
 
-    .mock('http://mockjs.test.data/sdkv2/httpheader', {
-        'key1': 'key1',
-        'key2': 'key2'
+    .mock('/mock/forum', { //版块管理
+        'total': 150,
+        "data|10": [
+            {
+                'id|+1': 20,
+                'name': '@cname',
+                'state|1': true,
+                'url': '@url',
+                'requestType': function () {
+                    return Mock.Random.boolean() ? 'GET' : 'POST';
+                },
+                'responseType': function () {
+                    return Mock.Random.boolean() ? 'JSON' : 'TXT';
+                },
+                'alarmTimes': 3,
+                'alarmInterval': 60,
+                'rotationTime': 10,
+                'timeout': 60,
+                'delayTime': 60
+            }
+        ]
     })

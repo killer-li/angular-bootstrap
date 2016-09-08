@@ -3,8 +3,8 @@
     var app = angular.module('app',
         [
             'ui.router',
-            'ui.grid',
             'ui.bootstrap',
+            'ngTable',
             'ourpalm-util-directive',
             'ourpalm-bootstrap-directive',
             'ourpalm-util-filter',
@@ -79,5 +79,6 @@
                     }
                 })
             ;
-        });
+        })
+    ;
 })(angular);

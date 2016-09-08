@@ -10,56 +10,55 @@
 </head>
 <body>
 
-<!-- Start Page Loading -->
-<div class="loading"><img src="lib_components/img/loading.gif" alt="loading-img"></div>
-<!-- End Page Loading -->
+    <!-- Start Page Loading -->
+    <div class="loading"><img src="lib_components/img/loading.gif" alt="loading-img"></div>
+    <!-- End Page Loading -->
 
-<div ui-view="top"></div>
-<div ui-view="left"></div>
-<div ui-view="right"></div>
-<div ui-view="main"></div>
-
-
-<!-- ================================================jQuery Library================================================ -->
-<script type="text/javascript" src="lib_components/js/jquery.min.js"></script>
-<!-- ================================================Bootstrap Core JavaScript File================================================ -->
-<script src="lib_components/js/bootstrap/bootstrap.min.js"></script>
-<!-- ================================================Plugin.js - Some Specific JS codes for Plugin Settings================================================ -->
-<script type="text/javascript" src="lib_components/js/plugins.js"></script>
-<!-- ================================================Bootstrap Select================================================ -->
-<script type="text/javascript" src="lib_components/js/bootstrap-select/bootstrap-select.js"></script>
-<!-- ================================================Bootstrap Toggle================================================ -->
-<script type="text/javascript" src="lib_components/js/bootstrap-toggle/bootstrap-toggle.min.js"></script>
-<!-- ================================================Moment.js================================================ -->
-<script type="text/javascript" src="lib_components/js/moment/moment.min.js"></script>
-<!-- ================================================Data Tables================================================ -->
-<script type="text/javascript" src="lib_components/js/datatables/datatables.min.js"></script>
-<script type="text/javascript" src="lib_components/js/date-range-picker/daterangepicker.js"></script>
-
-<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-<script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script type="text/javascript" src="bower_components/angular-translate/angular-translate.min.js"></script>
-<script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
-<script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-<script type="text/javascript" src="bower_components/angular-ui-grid/ui-grid.min.js"></script>
-
-<script type="text/javascript" src="ourpalm-util/ourpalm-util-directive.js"></script>
-<script type="text/javascript" src="ourpalm-util/ourpalm-bootstrap-directive.js"></script>
-<script type="text/javascript" src="ourpalm-util/ourpalm-util-filter.js"></script>
-<script type="text/javascript" src="ourpalm-util/ourpalm-util-http.js"></script>
-<script type="text/javascript" src="ourpalm-service/ourpalm-service.js"></script>
-<script type="text/javascript" src="ourpalm-app/ourpalm-app.js"></script>
-<script type="text/javascript" src="ourpalm-controller/ourpalm-controller.js"></script>
+    <div ui-view="top"></div>
+    <div ui-view="left"></div>
+    <div ui-view="right"></div>
+    <div ui-view="main"></div>
 
 
-<!-- mock data -->
-<script type="text/javascript" src="bower_components/mockjs/dist/mock-min.js"></script>
-<script type="text/javascript" src="lib_components/mock/mock.angular.js"></script>
-<script type="text/javascript" src="lib_components/mock/mock-data.js"></script>
+    <!-- ================================================jQuery Library================================================ -->
+    <script type="text/javascript" src="lib_components/js/jquery.min.js"></script>
+    <!-- ================================================Bootstrap Core JavaScript File================================================ -->
+    <script src="lib_components/js/bootstrap/bootstrap.min.js"></script>
+    <!-- ================================================Plugin.js - Some Specific JS codes for Plugin Settings================================================ -->
+    <script type="text/javascript" src="lib_components/js/plugins.js"></script>
+    <!-- ================================================Bootstrap Select================================================ -->
+    <script type="text/javascript" src="lib_components/js/bootstrap-select/bootstrap-select.js"></script>
+    <!-- ================================================Bootstrap Toggle================================================ -->
+    <script type="text/javascript" src="lib_components/js/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+    <!-- ================================================Moment.js================================================ -->
+    <script type="text/javascript" src="lib_components/js/moment/moment.min.js"></script>
+    <!-- ================================================Data Tables================================================ -->
+    <script type="text/javascript" src="lib_components/js/date-range-picker/daterangepicker.js"></script>
 
-<script type="text/javascript">
-    Mock.mockjax(window.angularAPP);
-    angular.bootstrap(document, ['app']);
-</script>
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-translate/angular-translate.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="bower_components/ng-table/dist/ng-table.min.js"></script>
+
+    <script type="text/javascript" src="ourpalm-util/ourpalm-util-directive.js"></script>
+    <script type="text/javascript" src="ourpalm-util/ourpalm-bootstrap-directive.js"></script>
+    <script type="text/javascript" src="ourpalm-util/ourpalm-util-filter.js"></script>
+    <script type="text/javascript" src="ourpalm-util/ourpalm-util-http.js"></script>
+    <script type="text/javascript" src="ourpalm-service/ourpalm-service.js"></script>
+    <script type="text/javascript" src="ourpalm-app/ourpalm-app.js"></script>
+    <script type="text/javascript" src="ourpalm-controller/ourpalm-controller.js"></script>
+
+
+    <!-- mock data -->
+    <script type="text/javascript" src="bower_components/mockjs/dist/mock-min.js"></script>
+    <script type="text/javascript" src="lib_components/mock/mock.angular.js"></script>
+    <script type="text/javascript" src="lib_components/mock/mock-data.js"></script>
+
+    <script type="text/javascript">
+        Mock.mockjax(window.angularAPP);
+        angular.bootstrap(document, ['app']);
+    </script>
 </body>
 </html>
