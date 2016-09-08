@@ -29,12 +29,25 @@ Mock
         }]
     })
 
-    .mock('/mock/forum', {
-        'count': 23,
+    .mock('/mock/forum', { //版块管理
+        'total': 150,
         "data|10": [
             {
-                'name': "@cname",
-                'age|+1': 25
+                'id|+1': 20,
+                'name': '@cname',
+                'state|1': true,
+                'url': '@url',
+                'requestType': function () {
+                    return Mock.Random.boolean() ? 'GET' : 'POST';
+                },
+                'responseType': function () {
+                    return Mock.Random.boolean() ? 'JSON' : 'TXT';
+                },
+                'alarmTimes': 3,
+                'alarmInterval': 60,
+                'rotationTime': 10,
+                'timeout': 60,
+                'delayTime': 60
             }
         ]
     })

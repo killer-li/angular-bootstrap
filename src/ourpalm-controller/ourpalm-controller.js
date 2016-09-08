@@ -45,21 +45,21 @@
             };
         })
 
-        .controller('ExampleCtrl', function (NgTableParams, $Http, $q) {
+        .controller('ForumController', function (NgTableParams, $Http, $q) {
             var vm = this;
 
             vm.tableParams = new NgTableParams({}, {
                 getData: function (params) {
                     var deferred = $q.defer();
                     // console.info(params.orderBy());
-                    $Http.post('http://192.168.75.107/monitor/task/pageURLTask/2', {
+                    $Http.post('/mock/forum', {
                         page: params.page(),
                         rows: params.count()
                     }, {
                         cache: true
                     }).success(function (result) {
                         params.total(result.total);
-                        deferred.resolve(result.rows);
+                        deferred.resolve(result.data);
                     });
                     return deferred.promise;
                 }
